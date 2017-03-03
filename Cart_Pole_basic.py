@@ -11,3 +11,5 @@ class  brain:
 
     def __init__(self, stateCnt, actionCnt)
         self.stateCnt = stateCnt
+
+    def _createModel(self)
