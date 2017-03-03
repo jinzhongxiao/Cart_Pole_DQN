@@ -7,3 +7,6 @@ from keras.models import Sequential
 from keras.layers import *
 
 print "ddd"
+
+
+anthoer guy
