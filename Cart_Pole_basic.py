@@ -6,8 +6,7 @@ import random, numpy, math, gym
 from keras.models import Sequential
 from keras.layers import *
 from keras.optimizers import *
-<<<<<<< HEAD
-=======
+
 class  brain:
     def __init__(self, stateCnt, actionCnt)
->>>>>>> feature1
+        self.stateCnt = stateCnt
