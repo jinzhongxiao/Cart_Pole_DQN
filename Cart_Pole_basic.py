@@ -9,8 +9,13 @@ from keras.optimizers import *
 
 
 dclass  brain:
-    drf __init__(self, stateCnt, actionCnt)
+    def __init__(self, stateCnt, actionCnt)
         self.stateCnt = stateCnt
         self.actionCnt = actionCntf
 fjdiaelkjfdoiaekjiafsdklfjeiasdklfjeiads
 jifejfasdfe
+
+
+
+
+dd
