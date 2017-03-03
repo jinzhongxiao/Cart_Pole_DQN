@@ -5,8 +5,16 @@ import random, numpy, math, gym
 #------------------------BRAIN-------------------------------
 from keras.models import Sequential
 from keras.layers import *
+from keras.optimizers import *
 
-print "ddd"
+
+dclass  brain:
+    def __init__(self, stateCnt, actionCnt)
+        self.stateCnt = stateCnt
+        self.actionCnt = actionCnt
+
+        dsafd
+
+anthoer guya
 
 
-anthoer guy
