@@ -11,7 +11,7 @@ from keras.optimizers import *
 dclass  brain:
     def __init__(self, stateCnt, actionCnt)
         self.stateCnt = stateCnt
-        self.actionCnt = actionCnt
+        self.actionCnt = actionCntf
 fjdiaelkjfdoiaekjiafsdklfjeiasdklfjeiads
 jifejfasdfe
 kk
