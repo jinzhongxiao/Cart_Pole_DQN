@@ -18,5 +18,5 @@ dclass  brain:
 print "ddd"
 
 
-anthoer guy
+anthoer guyddd
 >>>>>>> 0c0cd7897deb1e909ac88e202f319ba025b8d4e0
