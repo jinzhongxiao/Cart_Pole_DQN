@@ -12,7 +12,4 @@ dclass  brain:
     def __init__(self, stateCnt, actionCnt)
         self.stateCnt = stateCnt
         self.actionCnt = actionCnt
-
-        dsafd
-
-anthoer guya
+fjdiaelkjfdoiaekjiafsdklfjeiasdklfjeiads
