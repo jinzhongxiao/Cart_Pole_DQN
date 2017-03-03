@@ -7,6 +7,9 @@ from keras.models import Sequential
 from keras.layers import *
 from keras.optimizers import *
 
-class  brain:
+dclass  brain:
     def __init__(self, stateCnt, actionCnt)
         self.stateCnt = stateCnt
+        self.actionCnt = actionCnt
+
+        dsafd
