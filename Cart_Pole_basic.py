@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 #-*-utf-8-*-
 import os
-#os.environ['THEANO_FLAGS'] = "device=gpu, floatX=float32"
+os.environ['THEANO_FLAGS'] = "device=gpu, floatX=float32"
 import random, numpy, math, gym
 #------------------------BRAIN-------------------------------
 from keras.models import Sequential
 from keras.layers import *
 from keras.optimizers import *
 
-class  brain:
+class  Brain:
     def __init__(self, stateCnt, actionCnt):
         self.stateCnt = stateCnt
         self.actionCnt = actionCnt
@@ -17,7 +17,7 @@ class  brain:
 
     def _createModel(self):
         model = Sequential()
-        model.add(Dense(output_dim=64, activation='relu', input_dim=satateCnt))
+        model.add(Dense(output_dim=64, activation='relu', input_dim=stateCnt))
         model.add(Dense(output_dim=actionCnt, activation='linear'))
 
         opt = RMSprop(lr=0.00025)
@@ -39,7 +39,7 @@ class  brain:
 class Memory:
     samples = []
 
-    def __int__(self, capacity):
+    def __init__(self, capacity):
         self.capacity = capacity
 
     def add(self, sample):
@@ -71,14 +71,14 @@ class Agent:
         self.stateCnt = stateCnt
         self.actionCnt = actionCnt
 
-        self.brain = Barin(stateCnt, actionCnt)
+        self.brain = Brain(stateCnt, actionCnt)
         self.memory = Memory(MEMORY_CAPACITY)
 
     def act(self, s):
         if random.random() < self.epsilon:
             return random.randint(0, self.actionCnt - 1)
         else:
-            return numpy.argmax(self.brain,predictOne(s))
+            return numpy.argmax(self.brain.predictOne(s))
 
     def observe(self, sample):
         self.memory.add(sample)
@@ -97,7 +97,7 @@ class Agent:
         states_ = numpy.array( [(no_state if o[3] is None else o[3]) for o in batch] )
 
         p = agent.brain.predict(states)
-        p_ = agent.brain.predict(satets_)
+        p_ = agent.brain.predict(states_)
 
         x = numpy.zeros((batchLen, self.stateCnt))
         y = numpy.zeros((batchLen, self.actionCnt))
@@ -146,15 +146,15 @@ class Environment:
             if done:
                 break
 
-        print("Total Reeard:", R)
+        print("Total Reward:", R)
 
 
 #-------------------------------------MAIN------------------------------
-PROBLEM = 'CartPolr-v0'
+PROBLEM = 'CartPole-v0'
 env = Environment(PROBLEM)
 
-stateCnt = env.env.observation_space.shape[0]
-actionCnt = env.env.action_sapce.n
+stateCnt  = env.env.observation_space.shape[0]
+actionCnt = env.env.action_space.n
 
 agent = Agent(stateCnt, actionCnt)
 
